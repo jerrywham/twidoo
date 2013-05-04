@@ -1,5 +1,5 @@
 <?php require_once('common.php'); 
-$filter = (isset($_['filter'])?$_['filter']:'all');
+$filter = (isset($_['filter'])?explode(',',$_['filter']):array());
 
 ?>
 <!DOCTYPE html>
@@ -59,10 +59,10 @@ $filter = (isset($_['filter'])?$_['filter']:'all');
     <div class="container">
         <div class="well-mini form-inline">
           <div class="btn-group pull-left margin5r">
-            <button class="btn <?php echo ($filter=='all'?'btn-primary':'') ?>" onclick="window.location='index.php?filter=all';">Tous</button>
-            <button class="btn <?php echo ($filter=='0'?'btn-primary':'') ?>" onclick="window.location='index.php?filter=0';">A faire</button>
-            <button class="btn <?php echo ($filter=='1'?'btn-primary':'') ?>" onclick="window.location='index.php?filter=1';">En cours</button>
-            <button class="btn <?php echo ($filter=='2'?'btn-primary':'') ?>" onclick="window.location='index.php?filter=2';">Fait</button>
+            <button class="btn" onclick="window.location='index.php?filter=0,1';"><i class="icon-home"></i></button>
+            <button class="btn <?php echo (isset($filter[0]) && $filter[0]==0 && count($filter)==1?'btn-primary':'') ?>" onclick="window.location='index.php?filter=0';">A faire</button>
+            <button class="btn <?php echo (isset($filter[0]) && $filter[0]==1 && count($filter)==1?'btn-primary':'') ?>" onclick="window.location='index.php?filter=1';">En cours</button>
+            <button class="btn <?php echo (isset($filter[0]) && $filter[0]==2 && count($filter)==1?'btn-primary':'') ?>" onclick="window.location='index.php?filter=2';">Fait</button>
           </div>
           
             <input type="text" name="taskDate" class="input-mini" placeholder="JJ/MM/YYYY">

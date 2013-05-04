@@ -24,14 +24,14 @@ function get_task($id){
 	return $target;
 }
 
-function get_tasks($filter='all'){
-	if($filter=='all'){
+function get_tasks($filter=array()){
+	if(count($filter)==0){
 		return unstock(file_read(DATA_FILE));
 	}else{
 		$newList = array();
 		$tasks = unstock(file_read(DATA_FILE));
 			foreach($tasks as $task){
-			if($task['s']==$filter) $newList[]= $task;
+			if(in_array($task['s'],$filter)) $newList[]= $task;
 		}
 		return $newList;
 	}
