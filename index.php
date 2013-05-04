@@ -57,6 +57,9 @@ $filter = (isset($_['filter'])?explode(',',$_['filter']):array());
     </div>
 
     <div class="container">
+
+
+      <?php if($myUser!=false){ ?>
         <div class="well-mini form-inline">
           <div class="btn-group pull-left margin5r">
             <button class="btn" onclick="window.location='index.php?filter=0,1';"><i class="icon-home"></i></button>
@@ -90,7 +93,7 @@ $filter = (isset($_['filter'])?explode(',',$_['filter']):array());
         
         
          
-    <?php if($myUser!=false){ ?>
+    
       <div class="row show-grid">
         <?php 
 
