@@ -56,9 +56,10 @@ switch ($_['action']){
 
 	case 'login':
 			if($_['login']==USER_LOGIN && $_['password']==USER_PASSWORD){
-				$user->login = USER_LOGIN;
-				$user->password = USER_PASSWORD;
-				$_SESSION['currentUser'] = serialize($user);
+				$myUser = new stdClass;
+				$myUser->login = USER_LOGIN;
+				$myUser->password = USER_PASSWORD;
+				$_SESSION['currentUser'] = serialize($myUser);
 			}
 			header('location: ./index.php');	
 	break;

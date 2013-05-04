@@ -1,5 +1,6 @@
 <?php require_once('common.php'); 
 $filter = (isset($_['filter'])?$_['filter']:'all');
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -24,7 +25,7 @@ $filter = (isset($_['filter'])?$_['filter']:'all');
 
   <body>
 
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar">
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
