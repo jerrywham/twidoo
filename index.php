@@ -113,7 +113,7 @@ $filter = (isset($_['filter'])?$_['filter']:'all');
           } 
           ?>
 
-             <?php echo $task['n']; ?> -  <em><i class="icon-calendar"></i> <?php echo $task['d']; ?></em>  <button onclick="deleteTask('<?php echo $task['i']; ?>',this);" class="btn btn-mini btn-danger pull-right"><i class="icon-minus-sign icon-white"></i></button> <!--<button onclick="updateTask('<?php echo $task['i']; ?>',this);" class="btn btn-mini pull-right margin5r"><i class="icon-pencil"></i></button>-->
+             <?php echo $task['n']; ?><?php if($task['d']!=''){ ?> -  <em><i class="icon-calendar"></i><?php } ?> <?php echo $task['d']; ?></em>  <button onclick="deleteTask('<?php echo $task['i']; ?>',this);" class="btn btn-mini btn-danger pull-right"><i class="icon-minus-sign icon-white"></i></button> <!--<button onclick="updateTask('<?php echo $task['i']; ?>',this);" class="btn btn-mini pull-right margin5r"><i class="icon-pencil"></i></button>-->
         </div>
         <?php } ?>
 
