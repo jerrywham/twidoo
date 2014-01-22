@@ -8,12 +8,21 @@ switch ($_['action']){
 
 	case 'addTask':
 	 if($myUser!=false){
-			$task['i'] = time().rand(0,200);
-			$task['n'] = stripslashes(html_entity_decode($_['n']));
-			$task['d'] = $_['d'];
-			$task['s'] = 0;
-			add_task($task);
-			$return['info'] = 'T&acirc;che correctement ajout&eacute;e.';
+	 		$date = explode('/',$_['d']);
+	 		if (count($date) != 3 OR empty($date[0]) OR empty($date[1]) OR empty($date[2]) ) {
+	 			$return['error'] = 'Le format de date n\'est pas valide.';
+	 		} else {
+				if (!checkdate($date[1],$date[0],$date[2])) {
+					$return['error'] = 'Le format de date n\'est pas valide.';
+				} else {
+					$task['i'] = time().rand(0,200);
+					$task['n'] = stripslashes(html_entity_decode($_['n']));
+					$task['d'] = $_['d'];
+					$task['s'] = 0;
+					add_task($task);
+					$return['info'] = 'T&acirc;che correctement ajout&eacute;e.';
+				}
+	 		}
 		}else{
 			$return['error'] = 'Vous devez &eacute;tre connect&eacute; pour effectuer cette action';
 		}
