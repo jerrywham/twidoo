@@ -68,11 +68,11 @@ $filter = (isset($_['filter'])?explode(',',$_['filter']):array());
             <button class="btn <?php echo (isset($filter[0]) && $filter[0]==2 && count($filter)==1?'btn-primary':'') ?>" onclick="window.location='index.php?filter=2';">Fait</button>
           </div>
           
-            <input type="text" name="taskDate" class="input-mini" placeholder="JJ/MM/YYYY">
+            <input type="text" name="taskDate" class="input-mini" placeholder="JJ/MM/YYYY" onclick="ds_sh(this)">
          
             <div class="hidden-desktop"><br/></div>
           <div class="input-append">
-            <input type="text" name="taskName" class="input-xxlarge" placeholder="T&acirc;che">
+            <input type="text" name="taskName" class="input-xxlarge" placeholder="T&acirc;che" onclick="ds_hi()">
             <button id="addTaskButton" class="btn btn-primary"><i class="icon-plus icon-white"></i></button>
           </div>
         </div>
@@ -143,6 +143,11 @@ $filter = (isset($_['filter'])?explode(',',$_['filter']):array());
       </footer>
 
     </div> <!-- /container -->
+
+    <!-- Calendrier -->
+    <table class="ds_box" cellpadding="0" cellspacing="0" id="ds_conclass" style="display: none;">
+      <tr><td id="ds_calclass"></td></tr>
+    </table>
 
     <!-- Le javascript
     ================================================== -->
